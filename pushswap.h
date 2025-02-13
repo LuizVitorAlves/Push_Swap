@@ -28,6 +28,7 @@ t_list	*ft_lstlast(t_list *lst);
 int		stack_size(t_list *stack);
 void	index_stack(t_list *stack);
 void	sort_array(int *array, int size);
+void	ft_putstr_fd(char *s, int fd);
 
 // Funções de ordenação
 void	sort_two(t_list **stack);

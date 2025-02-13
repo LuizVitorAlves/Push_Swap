@@ -6,7 +6,7 @@
 
 typedef struct s_list
 {
-	int				value;
+	int				content;    // Alterado para content, para consistência
 	struct s_list	*next;
 }	t_list;
 
@@ -25,6 +25,20 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 
 // Funções auxiliares
 t_list	*ft_lstlast(t_list *lst);
+int		stack_size(t_list *stack);
+void	index_stack(t_list *stack);
+void	sort_array(int *array, int size);
+
+// Funções de ordenação
+void	sort_two(t_list **stack);
+void	sort_three(t_list **stack);
+void	sort_four(t_list **stack_a, t_list **stack_b);
+void	sort_five(t_list **stack_a, t_list **stack_b);
+
+// Função Radix
+void	radix_sort(t_list **stack_a, t_list **stack_b);
+
+// Funções de indexação
+void	push_smallest_to_b(t_list **stack_a, t_list **stack_b);
 
 #endif
-

@@ -6,7 +6,7 @@
 
 typedef struct s_list
 {
-	int				content;    // Alterado para content, para consistência
+	int				content;
 	struct s_list	*next;
 }	t_list;
 

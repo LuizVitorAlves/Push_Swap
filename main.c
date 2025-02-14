@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "pushswap.h"
-#include <stdio.h>
 
 static void	free_stacks(t_list **stack_a, t_list **stack_b)
 {

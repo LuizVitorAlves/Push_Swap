@@ -6,10 +6,12 @@
 /*   By: lalves-d <lalves-d@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 03:09:05 by lalves-d          #+#    #+#             */
-/*   Updated: 2025/01/30 03:21:02 by lalves-d         ###   ########.fr       */
+/*   Updated: 2025/02/13 20:17:07 by lalves-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "pushswap.h"
+
 static void	rotate(t_list **stack)
 {
 	t_list	*temp;

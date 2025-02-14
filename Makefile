@@ -1,35 +1,42 @@
-# Nome do projeto
+# Nome do executável
 NAME = push_swap
 
 # Compilador e flags
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I.
 
-# Arquivos fonte e objetos
-SRC = $(wildcard *.c)
+# Diretórios
+SRCDIR = .
+MOVESDIR = moves
+
+# Arquivos fonte
+SRC = $(SRCDIR)/main.c $(SRCDIR)/index.c $(SRCDIR)/radix_sort.c $(SRCDIR)/small_sort.c $(SRCDIR)/utils.c \
+      $(SRCDIR)/extra.c $(SRCDIR)/stack_utils.c \
+      $(MOVESDIR)/push.c $(MOVESDIR)/reverse_rotate.c $(MOVESDIR)/rotate.c $(MOVESDIR)/swap.c
+
+# Arquivos objeto
 OBJ = $(SRC:.c=.o)
 
-# Funções para compilar e linkar
+# Regra principal: compilar e criar o executável
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
-# Regras para criar os arquivos objetos
+# Regra para compilar arquivos .c em .o, garantindo que os arquivos dentro de "moves/" encontrem o pushswap.h
+$(MOVESDIR)/%.o: $(MOVESDIR)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Limpeza dos arquivos objeto e executável
+# Limpeza de arquivos objeto
 clean:
 	rm -f $(OBJ)
 
+# Limpeza total (arquivos objeto + executável)
 fclean: clean
 	rm -f $(NAME)
 
+# Recompilar do zero
 re: fclean $(NAME)
-
-# Regras para a biblioteca libft (se for usada, caso contrário pode ser removida)
-# libft.a:
-# 	$(MAKE) -C libft
-
-# Para usar a libft, descomente a linha acima e adicione -L./libft -lft nas flags de compilação do Makefile.
 
 .PHONY: all clean fclean re
